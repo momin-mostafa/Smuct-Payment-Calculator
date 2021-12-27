@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
 Widget customCard({
-  required String Title,
+  required String customTitle,
   required double value,
   double elevationRate = 13,
-  Color tile_color = Colors.white,
-  Color text_color = Colors.black,
+  Color tileColor = Colors.white,
+  Color textColor = Colors.black,
 }) {
   return Card(
-    color: tile_color,
+    color: tileColor,
     elevation: elevationRate,
     child: ListTile(
       title: Text(
-        Title,
-        style: TextStyle(color: text_color),
+        customTitle,
+        style: TextStyle(color: textColor),
       ),
       trailing: Text(
         value.toString() + "/-",
-        style: TextStyle(color: text_color),
+        style: TextStyle(color: textColor),
       ),
     ),
   );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/customCard.dart';
+import 'widgets/custom_card.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -26,11 +26,11 @@ class _HomeState extends State<Home> {
       ),
       body: ListView(
         children: [
-          customCard(Title: "Total (Semester Fee)", value: _total),
-          customCard(Title: "Reg Fee", value: _regFee),
-          customCard(Title: "Waiver", value: _waiver),
-          customCard(Title: "Mid", value: _mid),
-          customCard(Title: "Final ", value: _final),
+          customCard(customTitle: "Total (Semester Fee)", value: _total),
+          customCard(customTitle: "Reg Fee", value: _regFee),
+          customCard(customTitle: "Waiver", value: _waiver),
+          customCard(customTitle: "Mid", value: _mid),
+          customCard(customTitle: "Final ", value: _final),
           Container(
             width: size.width,
             margin: const EdgeInsets.all(20),
@@ -42,10 +42,10 @@ class _HomeState extends State<Home> {
             ),
           ),
           customCard(
-            Title: 'Reg + Total',
+            customTitle: 'Reg + Total',
             value: _regAndTotal,
-            tile_color: Colors.blueAccent,
-            text_color: Colors.white,
+            tileColor: Colors.blueAccent,
+            textColor: Colors.white,
           ),
         ],
       ),
