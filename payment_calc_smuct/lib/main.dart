@@ -1,8 +1,17 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'ui.dart';
+import 'package:window_size/window_size.dart';
 // import 'drop_down_menu.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowTitle("My App");
+    setWindowMinSize(const Size(414, 736));
+    setWindowMaxSize(const Size(1024, 800));
+    // setWindowSize(Size(1024, 800));
+  }
   runApp(const HomeWrapper());
 }
 
