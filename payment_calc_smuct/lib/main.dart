@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'ui.dart';
 import 'package:window_size/window_size.dart';
+import 'package:get/get.dart';
 // import 'drop_down_menu.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class HomeWrapper extends StatefulWidget {
 class _HomeWrapperState extends State<HomeWrapper> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       home: SafeArea(
         child: Home(),
       ),
