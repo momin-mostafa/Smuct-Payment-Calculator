@@ -15,11 +15,15 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    var dataController =
-        Get.put(CostController(18400.toDouble(), 2000.toDouble()));
+    var dataController = Get.put(CostController(
+      semesterfeeTotal: 18400,
+      registrationFee: 2000,
+      waiverPercentage: 30,
+    ));
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blueGrey[700],
         title: const Text('SMUCT Fee Calculator'),
         centerTitle: true,
       ),
@@ -58,7 +62,7 @@ class _HomeState extends State<Home> {
           customCard(
             customTitle: 'Reg + Total',
             value: dataController.data.regAndTotal,
-            tileColor: Colors.blueAccent,
+            tileColor: Colors.deepOrangeAccent,
             textColor: Colors.white,
           ),
         ],
