@@ -1,9 +1,7 @@
 import 'package:get/get.dart';
-import 'package:payment_calc_smuct/models/basic_model.dart';
+import 'package:payment_calc_smuct/models/model.dart';
 
 class CostController extends GetxController {
-  // var input1;
-  // var input2;
   var data = DataModel();
   CostController(var semesterfeeTotal, var registrationFee) {
     data.total = semesterfeeTotal;
@@ -14,9 +12,4 @@ class CostController extends GetxController {
     data.finalfee = data.finalAmmount / 2;
     data.regAndTotal = data.finalAmmount + data.regFee;
   }
-  // void setController(double semesterfeeTotal, double registrationFee) {
-  //   input1 = semesterfeeTotal;
-  //   input2 = registrationFee;
-  //   pData = DemoModel(totalSemesterFee: input1, registrationFee: input2).obs;
-  // }
 }

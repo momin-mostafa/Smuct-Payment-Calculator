@@ -11,7 +11,6 @@ void main() {
     setWindowTitle("My App");
     setWindowMinSize(const Size(414, 736));
     setWindowMaxSize(const Size(1024, 800));
-    // setWindowSize(Size(1024, 800));
   }
   runApp(const HomeWrapper());
 }
