@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'ui.dart';
+import 'demo_first_page.dart';
+// import 'ui.dart';
 import 'package:window_size/window_size.dart';
 import 'package:get/get.dart';
 // import 'drop_down_menu.dart';
@@ -27,7 +28,8 @@ class _HomeWrapperState extends State<HomeWrapper> {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       home: SafeArea(
-        child: Home(),
+        // child: Home(),
+        child: DemoFirstPage(),
       ),
       debugShowCheckedModeBanner: false,
     );

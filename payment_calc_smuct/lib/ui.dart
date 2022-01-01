@@ -15,10 +15,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    var data = Get.arguments;
     var dataController = Get.put(CostController(
-      semesterfeeTotal: 18400,
-      registrationFee: 2000,
-      waiverPercentage: 30,
+      semesterfeeTotal: data[0],
+      registrationFee: data[1],
+      waiverPercentage: data[2],
     ));
 
     return Scaffold(
