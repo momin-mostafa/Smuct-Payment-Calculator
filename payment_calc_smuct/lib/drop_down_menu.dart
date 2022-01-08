@@ -8,38 +8,32 @@ class DropDownButtonClass extends StatefulWidget {
 }
 
 class _DropDownButtonClassState extends State<DropDownButtonClass> {
-  String dropdownValue = 'three'; // default value of the menu
+  String dropdownValue = 'None'; // default value of the menu
   List<String> dropdownItem = ['None', 'two', 'three', 'four'];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dropdown Button Practice'),
-        centerTitle: true,
-      ),
-      body: DropdownButtonHideUnderline(
-        child: DropdownButton<String>(
-          value: dropdownValue, //setting default value
-          items: dropdownItem.map((value) {
-            // mapping all the elements in dropdown items.
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(
-                value,
-                style: TextStyle(
-                  color: Colors.grey[900],
-                  fontSize: 20,
-                ),
+    return DropdownButtonHideUnderline(
+      child: DropdownButton<String>(
+        value: dropdownValue, //setting default value
+        items: dropdownItem.map((value) {
+          // mapping all the elements in dropdown items.
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(
+              value,
+              style: TextStyle(
+                color: Colors.grey[900],
+                fontSize: 20,
               ),
-            );
-          }).toList(),
-          onChanged: (value) {
-            setState(() {
-              dropdownValue = value!;
-            });
-          },
-        ),
+            ),
+          );
+        }).toList(),
+        onChanged: (value) {
+          setState(() {
+            dropdownValue = value!;
+          });
+        },
       ),
     );
   }
