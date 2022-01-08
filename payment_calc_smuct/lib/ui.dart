@@ -15,6 +15,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     var data = Get.arguments;
+    //TODO : Cost controller implementation starting point.
     var dataController = Get.put(CostController(
       semesterfeeTotal: data[0],
       registrationFee: data[1],
