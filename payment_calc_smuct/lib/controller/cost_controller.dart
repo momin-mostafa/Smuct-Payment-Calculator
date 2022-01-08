@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:payment_calc_smuct/models/model.dart';
 
+//TODO implement StudentWaiverController in CostController.
 class CostController extends GetxController {
   var data = DataModel();
   CostController({
