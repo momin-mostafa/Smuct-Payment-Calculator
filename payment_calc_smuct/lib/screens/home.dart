@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'widgets/custom_card.dart';
-import 'controller/cost_controller.dart';
+import '../widgets/custom_card.dart';
+import '../controller/cost_controller.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

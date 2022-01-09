@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:payment_calc_smuct/controller/cost_controller.dart';
 import 'package:get/get.dart';
-import 'package:payment_calc_smuct/ui.dart';
-// import 'package:payment_calc_smuct/widgets/drop_down_custom.dart';
-// import 'drop_down_menu.dart';
+import 'package:payment_calc_smuct/screens/home.dart';
 import 'models/model.dart';
 
 class DemoFirstPage extends StatefulWidget {
