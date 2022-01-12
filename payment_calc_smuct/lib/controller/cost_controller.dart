@@ -1,16 +1,34 @@
 import 'package:get/get.dart';
 import 'package:payment_calc_smuct/models/model.dart';
 
-//TODO implement StudentWaiverController in CostController.
 class CostController extends GetxController {
   var data = DataModel();
   CostController({
     required double semesterfeeTotal,
     required double registrationFee,
-    required double waiverPercentage,
+    // required double waiverPercentage,
     double additionalWaiver = 0,
+    required double previousSemesterResult,
+    required List<double> listOfAvailableWaiver,
+    required double sscResult,
+    required double hscResult,
+    required double prevTotalRegisteredCredit,
+    required double newIntakeCredit,
+    required double retakeCredit,
+    bool sscGolden = false,
+    bool hscGolden = false,
   }) {
     data.total = semesterfeeTotal;
+    // data.waiver = (waiverPercentage / 100) * data.total;
+    double waiverPercentage = StudentWaiverController(
+            previousSemesterResult: previousSemesterResult,
+            listOfAvailableWaiver: listOfAvailableWaiver,
+            sscResult: sscResult,
+            hscResult: hscResult,
+            prevTotalRegisteredCredit: prevTotalRegisteredCredit,
+            newIntakeCredit: newIntakeCredit,
+            retakeCredit: retakeCredit)
+        .getTotalWaiver();
     data.waiver = (waiverPercentage / 100) * data.total;
     data.finalAmmount = data.total - data.waiver;
     data.regFee = registrationFee;
@@ -49,7 +67,7 @@ class StudentWaiverController {
       ssc: sscResult,
     ).getSchollarship();
     data.prevTotalCredit = prevTotalRegisteredCredit;
-    data.prevNewIntake = newIntakeCredit;
+    // data.prevNewIntake = newIntakeCredit;
     data.retakeCredit = retakeCredit;
     data.additionalWaiver = additionalWaiver;
 

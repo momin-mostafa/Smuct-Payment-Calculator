@@ -10,16 +10,25 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+// implement data as structured. // must find a better solution.
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     var data = Get.arguments;
-    //TODO : Cost controller implementation starting point.
     var dataController = Get.put(CostController(
       semesterfeeTotal: data[0],
       registrationFee: data[1],
-      waiverPercentage: data[2],
+      previousSemesterResult: data[2], //todo change data
+      prevTotalRegisteredCredit: data[3], //todo change data
+      newIntakeCredit: data[4], //todo change data
+      retakeCredit: data[5], //todo change data
+      listOfAvailableWaiver: data[6], // todo change data
+      sscResult: data[7], //todo change data
+      hscResult: data[8], //todo change data
+      sscGolden: data[9], //todo change data
+      hscGolden: data[10], //todo change data
+      // additionalWaiver: data[11],
     ));
 
     return Scaffold(
@@ -66,6 +75,15 @@ class _HomeState extends State<Home> {
             tileColor: Colors.deepOrangeAccent,
             textColor: Colors.white,
           ),
+          //debug button
+          // TextButton(
+          //   onPressed: () {
+          //     for (var item in data) {
+          //       print(item);
+          //     }
+          //   },
+          //   child: const Text('show data'),
+          // )
         ],
       ),
     );

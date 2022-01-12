@@ -1,8 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'demo_first_page.dart';
+import 'package:payment_calc_smuct/screens/first_page.dart';
+// import 'demo_first_page.dart';
 // import 'ui.dart';
 import 'package:window_size/window_size.dart';
+// import 'screens/welcome.dart';
+import 'screens/first_page.dart';
 import 'package:get/get.dart';
 // import 'drop_down_menu.dart';
 
@@ -30,7 +33,7 @@ class _HomeWrapperState extends State<HomeWrapper> {
       home: SafeArea(
         // child: Home(),
         // child: DropDownButtonClass(),
-        child: DemoFirstPage(),
+        child: LoginDemo(),
       ),
       debugShowCheckedModeBanner: false,
     );

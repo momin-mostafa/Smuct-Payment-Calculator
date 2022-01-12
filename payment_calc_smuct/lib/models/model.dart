@@ -7,6 +7,7 @@ class DataModel {
   double mid = 0;
   double finalfee = 0;
   double regAndTotal = 0;
+  double additionalWaiver = 0;
 }
 
 class InputModel {
@@ -37,16 +38,33 @@ class StudentDataModel {
 }
 
 class Student {
-  double semesterfeeTotal = 0; // firebase or storage
-  double registrationFee = 0; // firebase or storage
-  double waiverPercentage = 0; //highest waiver
-  double previousSemesterResult = 0; // firebase or storage
+  String semesterfeeTotal = "0"; // firebase or storage
+  String registrationFee = "0"; // firebase or storage
+  String waiverPercentage = "0"; //highest waiver
+  String previousSemesterResult = "0"; // firebase or storage
   List<double> listOfAvailableWaiver = []; // dean info.
-  double sscResult = 0; // User Input
-  double hscResult = 0; // User Input
+  String sscResult = "0"; // User Input
+  String hscResult = "0"; // User Input
   bool sscGolden = false; //user Input or firebase
   bool hscGolden = false; // User input or firebase
-  double prevTotalRegisteredCredit = 0; // firebase
-  double newIntakeCredit = 0; // firebase
-  double retakeCredit = 0; //
+  String prevTotalRegisteredCredit = "0"; // firebase
+  String newIntakeCredit = "0"; // firebase
+  String retakeCredit = "0"; //
+  String additionalWaiver = "0";
+}
+
+class CostControllerWrapper {
+  double semesterfeeTotal = 0;
+  double registrationFee = 0;
+  // required double waiverPercentage,
+  double additionalWaiver = 0;
+  double previousSemesterResult = 0;
+  List<double> listOfAvailableWaiver = [];
+  double sscResult = 0;
+  double hscResult = 0;
+  double prevTotalRegisteredCredit = 0;
+  double newIntakeCredit = 0;
+  double retakeCredit = 0;
+  bool sscGolden = false;
+  bool hscGolden = false;
 }

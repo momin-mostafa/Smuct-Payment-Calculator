@@ -114,7 +114,6 @@ class _DemoFirstPageState extends State<DemoFirstPage> {
           ),
           ElevatedButton(
               onPressed: () {
-                //TODO: Executing point.
                 Get.to(const Home(), arguments: [
                   _inputModel.semesterFee,
                   _inputModel.registrationFee,
