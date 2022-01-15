@@ -4,6 +4,7 @@ import 'package:payment_calc_smuct/models/model.dart';
 class CostController extends GetxController {
   var data = DataModel();
   CostController({
+    required String departmentName,
     required double semesterfeeTotal,
     required double registrationFee,
     // required double waiverPercentage,

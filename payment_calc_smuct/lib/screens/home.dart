@@ -29,6 +29,7 @@ class _HomeState extends State<Home> {
       sscGolden: data[9], //todo change data
       hscGolden: data[10], //todo change data
       // additionalWaiver: data[11],
+      departmentName: data[11],
     ));
 
     return Scaffold(
@@ -39,6 +40,18 @@ class _HomeState extends State<Home> {
       ),
       body: ListView(
         children: [
+          Card(
+            child: ListTile(
+              title: Center(
+                  child: Text(
+                data[11],
+                style: const TextStyle(
+                  color: Colors.black54,
+                  fontWeight: FontWeight.bold,
+                ),
+              )),
+            ),
+          ),
           customCard(
             customTitle: "Total (Semester Fee)",
             value: dataController.data.total,
@@ -75,7 +88,7 @@ class _HomeState extends State<Home> {
             tileColor: Colors.deepOrangeAccent,
             textColor: Colors.white,
           ),
-          //debug button
+          // debug button
           // TextButton(
           //   onPressed: () {
           //     for (var item in data) {

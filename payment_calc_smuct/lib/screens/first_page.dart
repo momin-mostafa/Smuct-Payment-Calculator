@@ -17,6 +17,7 @@ class LoginDemo extends StatefulWidget {
 class _LoginDemoState extends State<LoginDemo> {
   // var color;
   Student data = Student();
+  String departmentName = "Please Select a Department";
   // TextEditingController sscResult = TextEditingController();
   String dropdownValue = 'Select Department';
   List<String> dropdownItem = ['Select Department', 'CSE', 'CSIT'];
@@ -26,9 +27,12 @@ class _LoginDemoState extends State<LoginDemo> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.blueGrey[700],
+        centerTitle: true,
         title: const Text("Input Page"),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepOrangeAccent,
         onPressed: () {
           Get.to(const Home(), arguments: [
             double.parse(data.semesterfeeTotal),
@@ -43,6 +47,7 @@ class _LoginDemoState extends State<LoginDemo> {
             data.sscGolden,
             data.hscGolden,
             // double.parse(data.additionalWaiver),
+            departmentName,
           ]);
         },
         child: const Icon(Icons.navigate_next_sharp),
@@ -103,11 +108,11 @@ class _LoginDemoState extends State<LoginDemo> {
             decoration: const BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Colors.purple,
+                  color: Colors.deepOrangeAccent,
                   width: 2.0,
                 ),
                 left: BorderSide(
-                  color: Colors.purple,
+                  color: Colors.deepOrangeAccent,
                   width: 4.0,
                 ),
               ),
@@ -133,10 +138,13 @@ class _LoginDemoState extends State<LoginDemo> {
                     if (value == "CSE") {
                       data.semesterfeeTotal = "20600";
                       data.registrationFee = "2000";
+                      departmentName = "Department of CSE";
                     } else if (value == "CSIT") {
                       data.semesterfeeTotal = "18400";
                       data.registrationFee = "2000";
+                      departmentName = "Department of CSIT";
                     }
+
                     setState(() {
                       dropdownValue = value!;
                     });
