@@ -144,8 +144,17 @@ class SscHscScholarship {
     this.sscGolden = false,
     this.hscGolden = false,
   }) {
+    waiverCounter(sscHscAvg(hsc, ssc));
+  }
+
+  double sscHscAvg(double hsc, double ssc) {
     _total = hsc + ssc;
     _avg = _total / 2;
+    return _avg;
+  }
+
+  double waiverCounter(double avg) {
+    double _avg = avg;
     if (_avg >= 3 && _avg <= 3.99) {
       _waiver = 10;
     } else if (_avg >= 4 && _avg <= 4.49) {
@@ -159,7 +168,9 @@ class SscHscScholarship {
         _waiver = 60;
       }
     }
+    return _waiver;
   }
+
   bool _twoGolden() {
     if (sscGolden && hscGolden) {
       return true;

@@ -105,17 +105,9 @@ class _LoginDemoState extends State<LoginDemo> {
           // ),
           Container(
             margin: const EdgeInsets.all(8),
-            decoration: const BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  color: Colors.deepOrangeAccent,
-                  width: 2.0,
-                ),
-                left: BorderSide(
-                  color: Colors.deepOrangeAccent,
-                  width: 4.0,
-                ),
-              ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.amber[600],
             ),
             child: ListTile(
               title: DropdownButtonHideUnderline(

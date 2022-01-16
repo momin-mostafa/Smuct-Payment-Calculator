@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "526105279955",
+    "project_id": "smuct-app",
+    "storage_bucket": "smuct-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526105279955:android:e6cec70901932b94244326",
+        "android_client_info": {
+          "package_name": "com.example.smuct_payment_calculator_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526105279955-e0m5piknabs69veou3nie7umuimtodio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC95YM4vMJqpyZbHAA4lz57RgSN9qKPz3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526105279955-e0m5piknabs69veou3nie7umuimtodio.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
