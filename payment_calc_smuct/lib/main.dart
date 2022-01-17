@@ -7,15 +7,18 @@ import 'package:payment_calc_smuct/screens/first_page.dart';
 // import 'screens/welcome.dart';
 import 'screens/first_page.dart';
 import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
 // import 'drop_down_menu.dart';
 
-void main() {
+Future<void> main() async {
   // WidgetsFlutterBinding.ensureInitialized();
   // if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
   //   setWindowTitle("My App");
   //   setWindowMinSize(const Size(414, 736));
   //   setWindowMaxSize(const Size(414, 736));
   // }
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const HomeWrapper());
 }
 
@@ -27,14 +30,28 @@ class HomeWrapper extends StatefulWidget {
 }
 
 class _HomeWrapperState extends State<HomeWrapper> {
+  final Future<FirebaseApp> _firebaseApp = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      home: SafeArea(
-        // child: Home(),
-        // child: DropDownButtonClass(),
-        child: LoginDemo(),
-      ),
+    return GetMaterialApp(
+      home: FutureBuilder(
+          future: _firebaseApp,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              print("You have an error! ${snapshot.error.toString()}");
+              return const Text("Something went wrong.");
+            } else if (snapshot.hasData) {
+              return const SafeArea(
+                // child: Home(),
+                // child: DropDownButtonClass(),
+                child: LoginDemo(),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
       debugShowCheckedModeBanner: false,
     );
   }
