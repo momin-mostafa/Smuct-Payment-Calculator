@@ -7,16 +7,21 @@ import 'package:payment_calc_smuct/screens/home.dart';
 //import 'widgets/custom_card2.dart';
 // import 'dart:ui';
 
-class LoginDemo extends StatefulWidget {
-  const LoginDemo({Key? key}) : super(key: key);
+class InitClass extends StatefulWidget {
+  const InitClass({Key? key}) : super(key: key);
 
   @override
   _LoginDemoState createState() => _LoginDemoState();
 }
 
-class _LoginDemoState extends State<LoginDemo> {
+// access firestore instance from main.dart file.
+class _LoginDemoState extends State<InitClass> {
   // var color;
-  Student data = Student();
+  // TODO Implement CSE AND CSIT From fireStore to shared pref.
+  // TODO Create Login Screen with firebase auth
+  // TODO SharedPref Implementation.
+  Student data =
+      Student(); // TODO get this data filled from fire store or Shared perf.
   String departmentName = "Please Select a Department";
   // TextEditingController sscResult = TextEditingController();
   String dropdownValue = 'Select Department';
@@ -127,6 +132,8 @@ class _LoginDemoState extends State<LoginDemo> {
                     );
                   }).toList(),
                   onChanged: (value) {
+                    //TODO SemeseterfeeTotal must be initialized from firebase. // semester fee total
+                    //TODO registrationFee must be initialized from firebase.   // Registration Fee
                     if (value == "CSE") {
                       data.semesterfeeTotal = "20600";
                       data.registrationFee = "2000";
