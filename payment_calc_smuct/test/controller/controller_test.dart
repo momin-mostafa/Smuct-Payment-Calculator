@@ -1,5 +1,9 @@
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
+// import 'package:test/test.dart';
 import 'package:payment_calc_smuct/controller/cost_controller.dart';
+import 'package:payment_calc_smuct/controller/ssc_hsc_based_scholarship.dart';
+import 'package:payment_calc_smuct/controller/highest_waiver.dart';
+import 'package:payment_calc_smuct/controller/student_waiver.dart';
 
 void main() {
   group("SscHscScholarship", () {
@@ -180,5 +184,45 @@ void main() {
       expect(studentWaiverController.getTotalWaiver(), 30);
     });
   });
+
   // start intregation test.
+  group("CostController getter method", () {
+    CostController a = CostController(
+        semesterfeeTotal: 18400,
+        registrationFee: 2000,
+        previousSemesterResult: 4,
+        listOfAvailableWaiver: [],
+        sscResult: 4.68,
+        hscResult: 4.33,
+        prevTotalRegisteredCredit: 14,
+        newIntakeCredit: 14,
+        retakeCredit: 0);
+    test("getFinalAmmount", () {
+      double data = a.getFinalAmmount();
+      expect(data, 12880);
+    });
+    test("getFinalFee", () {
+      double data = a.getFinalFee();
+      expect(data, 6440);
+    });
+    test("getMid", () {
+      expect(a.getMid(), 8440);
+    });
+    test("getRegAndTotal", () {
+      double data = a.getRegAndTotal();
+      expect(data, 14880);
+    });
+    test("getRegFee", () {
+      double data = a.getRegFee();
+      expect(data, 2000);
+    });
+    test("getTotal", () {
+      double data = a.getTotal();
+      expect(data, 18400);
+    });
+    test("getWaiver", () {
+      double data = a.getWaiver();
+      expect(data, 5520);
+    });
+  });
 }

@@ -15,6 +15,16 @@ class SignUpPage extends StatefulWidget {
 }
 
 // access firestore instance from main.dart file.
+// 0 level dev = add aditional waiver.
+// shared pref must be implemented first.
+// firestore should be available after login.
+// login will be done manually for purpose of one development per session
+// req for shared pref implementation. :-------------------------------------
+// everything must be customizable.
+// it should be a method. that automatically stores data in a specific model (student)
+// return type should be void. arguement can only be one argument or upmost 2 argument.
+// but additional functional argument must be included.
+
 class SignUpPageState extends State<SignUpPage> {
   // var color;
   // TODO Implement CSE AND CSIT From fireStore to shared pref.

@@ -29,7 +29,6 @@ class _HomeState extends State<Home> {
       sscGolden: data[9], //todo change data
       hscGolden: data[10], //todo change data
       // additionalWaiver: data[11],
-      departmentName: data[11],
     ));
 
     return Scaffold(
@@ -54,23 +53,23 @@ class _HomeState extends State<Home> {
           ),
           customCard(
             customTitle: "Total (Semester Fee)",
-            value: dataController.data.total,
+            value: dataController.getTotal(),
           ),
           customCard(
             customTitle: "Reg Fee",
-            value: dataController.data.regFee,
+            value: dataController.getRegFee(),
           ),
           customCard(
             customTitle: "Waiver",
-            value: dataController.data.waiver,
+            value: dataController.getWaiver(),
           ),
           customCard(
             customTitle: "Mid",
-            value: dataController.data.mid,
+            value: dataController.getMid(),
           ),
           customCard(
             customTitle: "Final ",
-            value: dataController.data.finalfee,
+            value: dataController.getFinalFee(),
           ),
           Container(
             width: size.width,
@@ -78,13 +77,13 @@ class _HomeState extends State<Home> {
             // color: Colors.red,
             alignment: Alignment.centerRight,
             child: Text(
-              "Total = " + dataController.data.finalAmmount.toString(),
+              "Total = " + dataController.getFinalAmmount().toString(),
               style: const TextStyle(fontSize: 20),
             ),
           ),
           customCard(
             customTitle: 'Reg + Total',
-            value: dataController.data.regAndTotal,
+            value: dataController.getRegAndTotal(),
             tileColor: Colors.deepOrangeAccent,
             textColor: Colors.white,
           ),

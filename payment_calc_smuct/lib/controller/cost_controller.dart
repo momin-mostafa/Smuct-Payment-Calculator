@@ -1,10 +1,10 @@
-import 'package:get/get.dart';
+import 'package:payment_calc_smuct/controller/student_waiver.dart';
 import 'package:payment_calc_smuct/models/model.dart';
 
-class CostController extends GetxController {
-  var data = DataModel();
+class CostController {
+  final DataModel _data = DataModel();
   CostController({
-    required String departmentName,
+    // required String departmentName,
     required double semesterfeeTotal,
     required double registrationFee,
     // required double waiverPercentage,
@@ -19,8 +19,8 @@ class CostController extends GetxController {
     bool sscGolden = false,
     bool hscGolden = false,
   }) {
-    data.total = semesterfeeTotal;
-    // data.waiver = (waiverPercentage / 100) * data.total;
+    _data.total = semesterfeeTotal;
+    // _data.waiver = (waiverPercentage / 100) * _data.total;
     double waiverPercentage = StudentWaiverController(
             previousSemesterResult: previousSemesterResult,
             listOfAvailableWaiver: listOfAvailableWaiver,
@@ -30,163 +30,38 @@ class CostController extends GetxController {
             newIntakeCredit: newIntakeCredit,
             retakeCredit: retakeCredit)
         .getTotalWaiver();
-    data.waiver = (waiverPercentage / 100) * data.total;
-    data.finalAmmount = data.total - data.waiver;
-    data.regFee = registrationFee;
-    data.mid = (data.finalAmmount / 2) + data.regFee;
-    data.finalfee = data.finalAmmount / 2;
-    data.regAndTotal = data.finalAmmount + data.regFee;
+    _data.waiver = (waiverPercentage / 100) * _data.total;
+    _data.finalAmmount = _data.total - _data.waiver;
+    _data.regFee = registrationFee;
+    _data.mid = (_data.finalAmmount / 2) + _data.regFee;
+    _data.finalfee = _data.finalAmmount / 2;
+    _data.regAndTotal = (_data.finalAmmount + _data.regFee);
   }
-}
-
-class StudentWaiverController {
-  var data = StudentDataModel();
-  double _total = 0;
-  // double _totalCredit = 0;
-  StudentWaiverController({
-    required double previousSemesterResult,
-    required List<double> listOfAvailableWaiver,
-    required double sscResult,
-    required double hscResult,
-    required double prevTotalRegisteredCredit,
-    required double newIntakeCredit,
-    required double retakeCredit,
-    double additionalWaiver = 0,
-    bool sscGolden = false,
-    bool hscGolden = false,
-  }) {
-    // init
-    data.prevResults = previousSemesterResult;
-    // data.prevSemesterBasedScholarship
-    data.highestWaiver = Waiver(listOfAvailableWaiver).highesetWaiver();
-    data.sscResult = sscResult;
-    data.hscResult = hscResult;
-    data.sscHscResultsBasedScholarship = SscHscScholarship(
-      hsc: hscResult,
-      sscGolden: sscGolden,
-      hscGolden: hscGolden,
-      ssc: sscResult,
-    ).getSchollarship();
-    data.prevTotalCredit = prevTotalRegisteredCredit;
-    // data.prevNewIntake = newIntakeCredit;
-    data.retakeCredit = retakeCredit;
-    data.additionalWaiver = additionalWaiver;
-
-    //logic
-    if (previousSemesterResult >= 3) {
-      //if newIntake is more than 9 credit.
-      if (_moreThanNineCredit()) {
-        if (data.highestWaiver > data.sscHscResultsBasedScholarship) {
-          _total = data.highestWaiver;
-        } else if (data.highestWaiver < data.sscHscResultsBasedScholarship) {
-          _total = data.sscHscResultsBasedScholarship;
-        } else {
-          _total = data.highestWaiver;
-        }
-      }
-    } else {
-      _total = 0;
-    }
-    if (_total >= 100) {
-      _total = 100;
-    } else if (_total < 100) {
-      _total += data.additionalWaiver;
-    }
+  double getTotal() {
+    return _data.total;
   }
 
-  bool _moreThanNineCredit() {
-    data.prevNewIntake = data.prevTotalCredit - data.retakeCredit;
-    if (data.prevNewIntake >= 9) {
-      return true;
-    }
-    return false;
+  double getWaiver() {
+    return _data.waiver;
   }
 
-  double getTotalWaiver() {
-    return _total;
-  }
-}
-
-class Waiver {
-  double _hightestWaiver = 0;
-  //.. all kind of waiver
-  Waiver(List<double> list) {
-    if (list.isNotEmpty) {
-      if (list.length >= 2) {
-        for (var waiver in list) {
-          if (_hightestWaiver <= waiver) {
-            _hightestWaiver = waiver;
-          }
-        }
-      }
-      if (list.length == 1) {
-        _hightestWaiver = list[0];
-      }
-    } else {
-      _hightestWaiver = 0;
-    }
-  }
-  double highesetWaiver() {
-    return _hightestWaiver;
-  }
-}
-
-//for non fdt & AMMT dept
-class SscHscScholarship {
-  double _total = 0;
-  double _avg = 0;
-  double _waiver = 0;
-  bool sscGolden = false;
-  bool hscGolden = false;
-  SscHscScholarship({
-    double hsc = 0,
-    double ssc = 0,
-    this.sscGolden = false,
-    this.hscGolden = false,
-  }) {
-    waiverCounter(sscHscAvg(hsc, ssc));
+  double getFinalAmmount() {
+    return _data.finalAmmount;
   }
 
-  double sscHscAvg(double hsc, double ssc) {
-    _total = hsc + ssc;
-    _avg = _total / 2;
-    return _avg;
+  double getRegFee() {
+    return _data.regFee;
   }
 
-  double waiverCounter(double avg) {
-    double _avg = avg;
-    if (_avg >= 3 && _avg <= 3.99) {
-      _waiver = 10;
-    } else if (_avg >= 4 && _avg <= 4.49) {
-      _waiver = 20;
-    } else if (_avg >= 4.5 && _avg <= 4.99) {
-      _waiver = 30;
-    } else if (_avg >= 5) {
-      if (_twoGolden()) {
-        _waiver = 100;
-      } else if (_oneGolden() || !_oneGolden()) {
-        _waiver = 60;
-      }
-    }
-    return _waiver;
+  double getMid() {
+    return _data.mid;
   }
 
-  bool _twoGolden() {
-    if (sscGolden && hscGolden) {
-      return true;
-    }
-    return false;
+  double getFinalFee() {
+    return _data.finalfee;
   }
 
-  bool _oneGolden() {
-    // if only hsc golden counts then edit below code.
-    if (sscGolden || hscGolden) {
-      return true;
-    }
-    return false;
-  }
-
-  double getSchollarship() {
-    return _waiver;
+  double getRegAndTotal() {
+    return _data.regAndTotal;
   }
 }

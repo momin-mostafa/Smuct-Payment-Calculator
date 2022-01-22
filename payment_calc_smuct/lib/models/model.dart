@@ -10,6 +10,14 @@ class DataModel {
   double additionalWaiver = 0;
 }
 
+class sharedPrefModel {
+  double hscResult = 0;
+  double sscResult = 0;
+  double prevCourseIntake = 0;
+  String userID = "Registered";
+  String userPass = "Pass Word";
+}
+
 class InputModel {
   // for Demo First Page {input model}
   double semesterFee = 0;
