@@ -1,25 +1,25 @@
-// import 'dart:io';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:payment_calc_smuct/screens/first_page.dart';
 // import 'demo_first_page.dart';
 // import 'ui.dart';
-// import 'package:window_size/window_size.dart';
+import 'package:window_size/window_size.dart';
 // import 'screens/welcome.dart';
-import 'screens/first_page.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'screens/login_page.dart';
 // import 'drop_down_menu.dart';
 
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-  //   setWindowTitle("My App");
-  //   setWindowMinSize(const Size(414, 736));
-  //   setWindowMaxSize(const Size(414, 736));
-  // }
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const HomeWrapper());
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowTitle("My App");
+    setWindowMinSize(const Size(414, 736));
+    setWindowMaxSize(const Size(414, 736));
+  }
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+  runApp(const DemoHomeWrapper());
 }
 
 class HomeWrapper extends StatefulWidget {
@@ -44,7 +44,7 @@ class _HomeWrapperState extends State<HomeWrapper> {
               return const SafeArea(
                 // child: Home(),
                 // child: DropDownButtonClass(),
-                child: LoginWrapper(),
+                child: LoginPage(),
               );
             } else {
               return const Center(
@@ -52,6 +52,25 @@ class _HomeWrapperState extends State<HomeWrapper> {
               );
             }
           }),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class DemoHomeWrapper extends StatefulWidget {
+  const DemoHomeWrapper({Key? key}) : super(key: key);
+
+  @override
+  _DemoHomeWrapperState createState() => _DemoHomeWrapperState();
+}
+
+class _DemoHomeWrapperState extends State<DemoHomeWrapper> {
+  @override
+  Widget build(BuildContext context) {
+    return const GetMaterialApp(
+      home: SafeArea(
+        child: LoginPage(),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
