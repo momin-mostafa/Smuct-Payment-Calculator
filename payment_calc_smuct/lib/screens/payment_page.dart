@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:payment_calc_smuct/functions/custom_shared_pref.dart';
+import 'package:payment_calc_smuct/controller/cost_controller.dart';
+import 'package:payment_calc_smuct/widgets/custom_card.dart';
 
 class PaymentPage extends StatefulWidget {
-  const PaymentPage({Key? key}) : super(key: key);
+  PaymentPage({Key? key}) : super(key: key);
+  // PaymentPage() {}
+
+  final CustomSharedPreferencesGetterSetter pref =
+      CustomSharedPreferencesGetterSetter();
 
   @override
   _PaymentPageState createState() => _PaymentPageState();
@@ -10,60 +17,73 @@ class PaymentPage extends StatefulWidget {
 class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
+    // widget.pref.setDefault();
+    CostController data = CostController(
+      semesterfeeTotal: widget.pref.getPrefDataFromDouble("semesterfeeTotal"),
+      registrationFee: widget.pref.getPrefDataFromDouble("registrationFee"),
+      previousSemesterResult:
+          widget.pref.getPrefDataFromDouble("previousSemesterResult"),
+      listOfAvailableWaiver: [0],
+      sscResult: widget.pref.getPrefDataFromDouble("sscResult"),
+      hscResult: widget.pref.getPrefDataFromDouble("hscResult"),
+      prevTotalRegisteredCredit:
+          widget.pref.getPrefDataFromDouble("prevTotalRegisteredCredit"),
+      newIntakeCredit: widget.pref.getPrefDataFromDouble("newIntakeCredit"),
+      retakeCredit: widget.pref.getPrefDataFromDouble("retakeCredit"),
+    );
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Payment Page'),
-      ),
+      appBar: AppBar(title: const Text('Payment Page'), centerTitle: true),
       body: Container(
-        child: ListView(children: const [
+        child: ListView(children: [
           Card(
             child: ListTile(
               title: Center(
                   child: Text(
-                "TODO payment page implementation.",
-                style: TextStyle(
+                widget.pref.getPrefDataFromFeild("DepartmentName"),
+                style: const TextStyle(
                   color: Colors.black54,
                   fontWeight: FontWeight.bold,
                 ),
               )),
             ),
           ),
-          // customCard(
-          //   customTitle: "Total (Semester Fee)",
-          //   value: dataController.getTotal(),
-          // ),
-          // customCard(
-          //   customTitle: "Reg Fee",
-          //   value: dataController.getRegFee(),
-          // ),
-          // customCard(
-          //   customTitle: "Waiver",
-          //   value: dataController.getWaiver(),
-          // ),
-          // customCard(
-          //   customTitle: "Mid",
-          //   value: dataController.getMid(),
-          // ),
-          // customCard(
-          //   customTitle: "Final ",
-          //   value: dataController.getFinalFee(),
-          // ),
-          // Container(
-          //   width: size.width,
-          //   margin: const EdgeInsets.all(20),
-          //   // color: Colors.red,
-          //   alignment: Alignment.centerRight,
-          //   child: Text(
-          //     "Total = " + dataController.getFinalAmmount().toString(),
-          //     style: const TextStyle(fontSize: 20),
-          //   ),
-          // ),
-          // customCard(
-          //   customTitle: 'Reg + Total',
-          //   value: dataController.getRegAndTotal(),
-          //   tileColor: Colors.deepOrangeAccent,
-          //   textColor: Colors.white,
-          // ),
+          customCard(
+            customTitle: "Total (Semester Fee)",
+            value: data.getTotal(),
+          ),
+          customCard(
+            customTitle: "Reg Fee",
+            value: data.getRegFee(),
+          ),
+          customCard(
+            customTitle: "Waiver",
+            value: data.getWaiver(),
+          ),
+          customCard(
+            customTitle: "Mid",
+            value: data.getMid(),
+          ),
+          customCard(
+            customTitle: "Final ",
+            value: data.getFinalFee(),
+          ),
+          Container(
+            width: size.width,
+            margin: const EdgeInsets.all(20),
+            // color: Colors.red,
+            alignment: Alignment.centerRight,
+            child: Text(
+              "Total = " + data.getFinalAmmount().toString(),
+              style: const TextStyle(fontSize: 20),
+            ),
+          ),
+          customCard(
+            customTitle: 'Reg + Total',
+            value: data.getRegAndTotal(),
+            tileColor: Colors.deepOrangeAccent,
+            textColor: Colors.white,
+          ),
         ]),
       ),
     );

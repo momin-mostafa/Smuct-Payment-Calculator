@@ -1,0 +1,12 @@
+"ID", "193061001"
+"Password", "smuct@admin"
+"DepartmentName", "CSIT"
+"previousSemesterResult", 4.0
+// setPrefDataFromFeildStringList("listOfAvailableWaiver", ["0"]);
+"sscResult", 4.68
+hscResult", 4.33
+"newIntakeCredit", 14.0
+"retakeCredit", 0
+"prevTotalRegisteredCredit", 14.0
+"semesterfeeTotal", 18400
+"registrationFee", 2000

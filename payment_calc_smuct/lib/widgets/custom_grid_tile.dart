@@ -5,11 +5,13 @@ class CustomTileHome extends StatelessWidget {
   final String titleStr;
   final Widget onTapPage;
   final Color? color;
+  final Function additionalFun;
   const CustomTileHome({
     Key? key,
     this.titleStr = "Custom Tile for Home",
     required this.onTapPage,
     required this.color,
+    required this.additionalFun,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class CustomTileHome extends StatelessWidget {
         ),
       ),
       onTap: () {
+        additionalFun();
         Get.to(onTapPage);
       },
     );

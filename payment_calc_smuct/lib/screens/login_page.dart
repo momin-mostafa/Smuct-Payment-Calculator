@@ -14,10 +14,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("LoginPage"),
+        title: const Text("Login Page"),
+        centerTitle: true,
       ),
       body: Container(),
       floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.navigate_next_rounded),
         onPressed: () {
           Get.to(const HomePage());
         },
