@@ -17,7 +17,7 @@ class PaymentPage extends StatefulWidget {
 class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
-    // widget.pref.setDefault();
+    widget.pref.setDefault();
     CostController data = CostController(
       semesterfeeTotal: widget.pref.getPrefDataFromDouble("semesterfeeTotal"),
       registrationFee: widget.pref.getPrefDataFromDouble("registrationFee"),
@@ -34,58 +34,55 @@ class _PaymentPageState extends State<PaymentPage> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(title: const Text('Payment Page'), centerTitle: true),
-      body: Container(
-        child: ListView(children: [
-          Card(
-            child: ListTile(
-              title: Center(
-                  child: Text(
-                widget.pref.getPrefDataFromFeild("DepartmentName"),
-                style: const TextStyle(
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold,
-                ),
-              )),
-            ),
+      body: ListView(children: [
+        Card(
+          child: ListTile(
+            title: Center(
+                child: Text(
+              widget.pref.getPrefDataFromFeild("DepartmentName"),
+              style: const TextStyle(
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
+              ),
+            )),
           ),
-          customCard(
-            customTitle: "Total (Semester Fee)",
-            value: data.getTotal(),
+        ),
+        customCard(
+          customTitle: "Total (Semester Fee)",
+          value: data.getTotal(),
+        ),
+        customCard(
+          customTitle: "Reg Fee",
+          value: data.getRegFee(),
+        ),
+        customCard(
+          customTitle: "Waiver",
+          value: data.getWaiver(),
+        ),
+        customCard(
+          customTitle: "Mid",
+          value: data.getMid(),
+        ),
+        customCard(
+          customTitle: "Final ",
+          value: data.getFinalFee(),
+        ),
+        Container(
+          width: size.width,
+          margin: const EdgeInsets.all(20),
+          alignment: Alignment.centerRight,
+          child: Text(
+            "Total = " + data.getFinalAmmount().toString(),
+            style: const TextStyle(fontSize: 20),
           ),
-          customCard(
-            customTitle: "Reg Fee",
-            value: data.getRegFee(),
-          ),
-          customCard(
-            customTitle: "Waiver",
-            value: data.getWaiver(),
-          ),
-          customCard(
-            customTitle: "Mid",
-            value: data.getMid(),
-          ),
-          customCard(
-            customTitle: "Final ",
-            value: data.getFinalFee(),
-          ),
-          Container(
-            width: size.width,
-            margin: const EdgeInsets.all(20),
-            // color: Colors.red,
-            alignment: Alignment.centerRight,
-            child: Text(
-              "Total = " + data.getFinalAmmount().toString(),
-              style: const TextStyle(fontSize: 20),
-            ),
-          ),
-          customCard(
-            customTitle: 'Reg + Total',
-            value: data.getRegAndTotal(),
-            tileColor: Colors.deepOrangeAccent,
-            textColor: Colors.white,
-          ),
-        ]),
-      ),
+        ),
+        customCard(
+          customTitle: 'Reg + Total',
+          value: data.getRegAndTotal(),
+          tileColor: Colors.deepOrangeAccent,
+          textColor: Colors.white,
+        ),
+      ]),
     );
   }
 }

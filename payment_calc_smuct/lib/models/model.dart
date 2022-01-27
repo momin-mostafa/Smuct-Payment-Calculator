@@ -10,7 +10,7 @@ class DataModel {
   double additionalWaiver = 0;
 }
 
-class sharedPrefModel {
+class SharedPrefModel {
   double hscResult = 0;
   double sscResult = 0;
   double prevCourseIntake = 0;

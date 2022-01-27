@@ -53,7 +53,7 @@ class CustomSharedPreferencesGetterSetter {
   void setDefault() {
     setPrefDataFromFeild("ID", "193061001");
     setPrefDataFromFeild("Password", "smuct@admin");
-    setPrefDataFromFeild("DepartmentName", "CSIT");
+    setPrefDataFromFeild("DepartmentName", "CSE");
     setPrefDataFromDouble("previousSemesterResult", 4.0);
     // setPrefDataFromFeildStringList("listOfAvailableWaiver", ["0"]);
     setPrefDataFromDouble("sscResult", 4.68);
@@ -61,7 +61,7 @@ class CustomSharedPreferencesGetterSetter {
     setPrefDataFromDouble("newIntakeCredit", 14.0);
     setPrefDataFromDouble("retakeCredit", 0);
     setPrefDataFromDouble("prevTotalRegisteredCredit", 14.0);
-    setPrefDataFromDouble("semesterfeeTotal", 18400);
+    setPrefDataFromDouble("semesterfeeTotal", 20600);
     setPrefDataFromDouble("registrationFee", 2000);
   }
 }

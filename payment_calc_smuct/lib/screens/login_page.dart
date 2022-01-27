@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import 'Home/home_screen.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.navigate_next_rounded),
         onPressed: () {
-          Get.to(const HomePage());
+          Get.to(HomePage());
         },
       ),
     );
