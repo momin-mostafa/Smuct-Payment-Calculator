@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payment_calc_smuct/screens/Teachers/about_teacher.dart';
-import 'package:payment_calc_smuct/screens/payment_page.dart';
+import 'package:payment_calc_smuct/screens/Payment/payment_page.dart';
 import 'package:payment_calc_smuct/widgets/home_screen_custom_card.dart';
 import 'package:payment_calc_smuct/functions/custom_shared_pref.dart';
 

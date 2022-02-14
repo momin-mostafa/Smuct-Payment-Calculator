@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment_calc_smuct/screens/registration_page.dart';
 import 'Home/home_screen.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +18,19 @@ class _LoginPageState extends State<LoginPage> {
         title: const Text("Login Page"),
         centerTitle: true,
       ),
-      body: Container(),
+      body: ListView(children: [
+        TextButton(
+          child: const Text("Login"),
+          onPressed: () {},
+        ),
+        //
+        TextButton(
+          onPressed: () {
+            Get.to(const RegistrationPage());
+          },
+          child: const Text("Register"),
+        ),
+      ]),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.navigate_next_rounded),
         onPressed: () {

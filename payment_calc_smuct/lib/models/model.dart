@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class DataModel {
   // used for cost controller.
   double total = 0;
@@ -75,4 +77,54 @@ class CostControllerWrapper {
   double retakeCredit = 0;
   bool sscGolden = false;
   bool hscGolden = false;
+}
+
+class FirebaseStudentModel {
+  String id; // = "193061001"; // Replace this with variables through factory.
+  String name; // = "smuct@admin";
+  String departmentName; // = "CSIT";
+  double previousSemesterResult; // = 4.0;
+// setPrefDataFromFeildStringList("listOfAvailableWaiver", ["0"]);
+  double sscResult; //= 4.68;
+  double hscResult; //= 4.33;
+  double newIntakeCredit; // = 14.0;
+  double retakeCredit; //= 0;
+  double prevTotalRegisteredCredit; // = 14.0;
+  double semesterfeeTotal; // = 18400;
+  double registrationFee; // = 2000;
+  FirebaseStudentModel({
+    required this.id,
+    required this.name,
+    required this.departmentName,
+    required this.hscResult,
+    this.newIntakeCredit = 0,
+    this.prevTotalRegisteredCredit = 0,
+    this.previousSemesterResult = 0,
+    required this.registrationFee,
+    this.retakeCredit = 0,
+    required this.semesterfeeTotal,
+    required this.sscResult,
+  });
+
+  Map<String, dynamic> toJason() => {
+        'id': id,
+        'name': name,
+        'departmentName': departmentName,
+        'previousSemesterResult': previousSemesterResult,
+        'sscResult': sscResult,
+        'hscResult': hscResult,
+        'newIntakeCredit': newIntakeCredit,
+        'retakeCredit': retakeCredit,
+        'prevTotalRegisteredCredit': prevTotalRegisteredCredit,
+        'semesterfeeTotal': semesterfeeTotal,
+        'registrationFee': registrationFee,
+      };
+}
+
+class RegistrationPageModelOne {
+  final id = TextEditingController();
+  final name = TextEditingController();
+  final departmentName = TextEditingController();
+  final sscResult = TextEditingController();
+  final hscResult = TextEditingController();
 }
