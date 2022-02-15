@@ -3,17 +3,41 @@ import 'package:payment_calc_smuct/models/model.dart';
 
 List<Widget> inputForm(data) {
   return [
-    customTextField(data, data.name, "name"),
-    customTextField(data, data.id, "ID"),
-    customTextField(data, data.departmentName, "Department Name"),
-    customTextField(data, data.sscResult, "SSC GPA"),
-    customTextField(data, data.hscResult, "HSC GPA"),
+    customTextField(
+      data: data,
+      controllerField: data.name,
+      lable: "name",
+    ),
+    customTextField(
+      data: data,
+      controllerField: data.id,
+      lable: "ID",
+    ),
+    customTextField(
+      data: data,
+      controllerField: data.departmentName,
+      lable: "Department Name",
+    ),
+    customTextField(
+      data: data,
+      controllerField: data.sscResult,
+      lable: "SSC GPA",
+    ),
+    customTextField(
+      data: data,
+      controllerField: data.hscResult,
+      lable: "HSC GPA",
+    ),
   ];
 }
 
-Widget customTextField(RegistrationPageModelOne data, controller, name) {
+Widget customTextField({
+  required RegistrationPageModelOne data,
+  required TextEditingController controllerField,
+  required String lable,
+}) {
   return TextField(
-    decoration: InputDecoration(label: Text(name)),
-    controller: controller,
+    decoration: InputDecoration(label: Text(lable)),
+    controller: controllerField,
   );
 }
