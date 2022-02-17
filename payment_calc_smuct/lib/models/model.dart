@@ -97,11 +97,11 @@ class FirebaseStudentModel {
     required this.name,
     required this.departmentName,
     required this.hscResult,
-    this.newIntakeCredit = 0,
-    this.prevTotalRegisteredCredit = 0,
-    this.previousSemesterResult = 0,
+    required this.newIntakeCredit,
+    required this.prevTotalRegisteredCredit,
+    required this.previousSemesterResult,
     required this.registrationFee,
-    this.retakeCredit = 0,
+    required this.retakeCredit,
     required this.semesterfeeTotal,
     required this.sscResult,
   });
@@ -122,6 +122,21 @@ class FirebaseStudentModel {
 }
 
 class RegistrationPageModelOne {
+  final id = TextEditingController();
+  final name = TextEditingController();
+  final departmentName = TextEditingController();
+  final sscResult = TextEditingController();
+  final hscResult = TextEditingController();
+}
+
+class RegistrationPageModelTwo {
+  final previousSemesterResult = TextEditingController();
+  final newIntakeCredit = TextEditingController();
+  final prevTotalRegisteredCredit = TextEditingController();
+  final retakeCredit = TextEditingController();
+}
+
+class FirebaseWrapperModel extends RegistrationPageModelTwo {
   final id = TextEditingController();
   final name = TextEditingController();
   final departmentName = TextEditingController();

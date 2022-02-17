@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:payment_calc_smuct/models/model.dart';
+import 'package:payment_calc_smuct/screens/registration_page.dart';
+import 'package:payment_calc_smuct/screens/result_input_page.dart';
 
 class ConfirmationPage extends StatelessWidget {
   const ConfirmationPage({Key? key}) : super(key: key);
@@ -9,12 +13,14 @@ class ConfirmationPage extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     const double elevation = 5;
     return Scaffold(
+      backgroundColor: Colors.white60,
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           SizedBox(
             height: height / 5,
             width: width / 1.1,
             child: Card(
+              // color: Colors.green[400],
               elevation: elevation,
               child: Center(
                 child: Column(
@@ -25,6 +31,7 @@ class ConfirmationPage extends StatelessWidget {
                       "Are You A Fresher ?",
                       style: TextStyle(
                         fontSize: width * 0.06,
+                        // color: Colors.white,
                       ),
                     ),
                     SizedBox(
@@ -34,15 +41,24 @@ class ConfirmationPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            final RegistrationPageModelTwo data =
+                                RegistrationPageModelTwo();
+                            data.newIntakeCredit.text = '9';
+                            data.prevTotalRegisteredCredit.text = '9';
+                            data.retakeCredit.text = '0';
+                            data.previousSemesterResult.text = '9';
+                            Get.to(const RegistrationPage(), arguments: data);
+                          },
                           child: const Text("Yes"),
-                          //TODO implementation starts here,
                         ),
                         SizedBox(
                           width: width / 6,
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(const ResultsInputPage());
+                          },
                           child: const Text("No"),
                         ),
                       ],

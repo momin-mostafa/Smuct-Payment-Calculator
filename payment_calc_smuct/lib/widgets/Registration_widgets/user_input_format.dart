@@ -31,8 +31,44 @@ List<Widget> inputForm(data) {
   ];
 }
 
+Widget inputFormResult(data) {
+  return Column(children: [
+    customTextFieldResult(
+      data: data,
+      controllerField: data.newIntakeCredit,
+      lable: "Intake Credit",
+    ),
+    customTextFieldResult(
+      data: data,
+      controllerField: data.prevTotalRegisteredCredit,
+      lable: "Previos Semester Total Registered Credit",
+    ),
+    customTextFieldResult(
+      data: data,
+      controllerField: data.previousSemesterResult,
+      lable: "Previous Semester SGPA",
+    ),
+    customTextFieldResult(
+      data: data,
+      controllerField: data.retakeCredit,
+      lable: "Retake Credit",
+    )
+  ]);
+}
+
 Widget customTextField({
   required RegistrationPageModelOne data,
+  required TextEditingController controllerField,
+  required String lable,
+}) {
+  return TextField(
+    decoration: InputDecoration(label: Text(lable)),
+    controller: controllerField,
+  );
+}
+
+Widget customTextFieldResult({
+  required RegistrationPageModelTwo data,
   required TextEditingController controllerField,
   required String lable,
 }) {

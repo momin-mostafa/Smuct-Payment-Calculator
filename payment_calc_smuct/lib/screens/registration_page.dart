@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:payment_calc_smuct/firebase_functions/init_firebase_user.dart';
 // import 'package:payment_calc_smuct/firebase_functions/create_user.dart';
 import 'package:payment_calc_smuct/models/model.dart';
+import 'package:payment_calc_smuct/screens/Home/home_screen.dart';
 // import 'package:payment_calc_smuct/screens/Home/home_screen.dart';
 import 'package:payment_calc_smuct/screens/login_page.dart';
 import 'package:payment_calc_smuct/widgets/Registration_widgets/user_input_format.dart';
@@ -16,6 +18,7 @@ class RegistrationPage extends StatefulWidget {
 
 class _RegistrationPageState extends State<RegistrationPage> {
   final RegistrationPageModelOne data = RegistrationPageModelOne();
+  var regPageTwoData = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +30,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
         Column(children: inputForm(data)),
         ElevatedButton(
           onPressed: () {
-            firebaseInitSendUserData(data, const LoginPage());
+            firebaseInitSendUserData(data, regPageTwoData, HomePage());
           },
           child: const Text("submit"),
         ),
