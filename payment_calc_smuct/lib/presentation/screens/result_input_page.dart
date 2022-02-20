@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:payment_calc_smuct/models/model.dart';
-import 'package:payment_calc_smuct/screens/registration_page.dart';
-import 'package:payment_calc_smuct/widgets/Registration_widgets/user_input_format.dart';
+import 'package:payment_calc_smuct/core/models/model.dart';
+import 'package:payment_calc_smuct/presentation/screens/registration_page.dart';
+import 'package:payment_calc_smuct/presentation/widgets/Registration_widgets/user_input_format.dart';
 import 'package:get/get.dart';
 
 class ResultsInputPage extends StatefulWidget {

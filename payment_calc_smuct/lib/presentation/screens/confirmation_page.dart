@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payment_calc_smuct/models/model.dart';
-import 'package:payment_calc_smuct/screens/registration_page.dart';
-import 'package:payment_calc_smuct/screens/result_input_page.dart';
+import 'package:payment_calc_smuct/core/firebase_functions/init_firebase_user.dart';
+import 'package:payment_calc_smuct/core/models/model.dart';
+import 'package:payment_calc_smuct/presentation/screens/login_page.dart';
+// import 'package:payment_calc_smuct/screens/registration_page.dart';
+import 'package:payment_calc_smuct/presentation/screens/result_input_page.dart';
 
 class ConfirmationPage extends StatelessWidget {
-  const ConfirmationPage({Key? key}) : super(key: key);
-
+  ConfirmationPage({Key? key}) : super(key: key);
+  final prevPageData = Get.arguments;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -48,7 +50,8 @@ class ConfirmationPage extends StatelessWidget {
                             data.prevTotalRegisteredCredit.text = '9';
                             data.retakeCredit.text = '0';
                             data.previousSemesterResult.text = '9';
-                            Get.to(const RegistrationPage(), arguments: data);
+                            firebaseInitSendUserData(
+                                prevPageData, data, const LoginPage());
                           },
                           child: const Text("Yes"),
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:payment_calc_smuct/screens/registration_page.dart';
+import 'package:payment_calc_smuct/presentation/screens/registration_page.dart';
+// import 'package:payment_calc_smuct/screens/registration_page.dart';
 import 'Home/home_screen.dart';
 import 'package:get/get.dart';
 

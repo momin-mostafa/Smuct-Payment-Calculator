@@ -1,13 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:payment_calc_smuct/screens/confirmation_page.dart';
+import 'package:payment_calc_smuct/presentation/screens/login_page.dart';
+// import 'package:payment_calc_smuct/presentation/screens/confirmation_page.dart';
 // import 'demo_first_page.dart';
 // import 'ui.dart';
 import 'package:window_size/window_size.dart';
 // import 'screens/welcome.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'screens/login_page.dart';
+// import 'package:payment_calc_smuct/presentation/screens/';
 // import 'drop_down_menu.dart';
 
 Future<void> main() async {
@@ -19,7 +20,7 @@ Future<void> main() async {
   }
   // WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
-  runApp(const DemoHomeWrapper());
+  runApp(const HomeWrapper());
 }
 
 class HomeWrapper extends StatefulWidget {
@@ -69,7 +70,7 @@ class _DemoHomeWrapperState extends State<DemoHomeWrapper> {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       home: SafeArea(
-        child: ConfirmationPage(),
+        child: LoginPage(),
       ),
       debugShowCheckedModeBanner: true,
     );

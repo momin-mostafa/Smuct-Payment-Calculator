@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:payment_calc_smuct/functions/custom_shared_pref.dart';
-import 'package:payment_calc_smuct/controller/cost_controller.dart';
-import 'package:payment_calc_smuct/widgets/custom_card.dart';
+import 'package:payment_calc_smuct/core/functions/custom_shared_pref.dart';
+import 'package:payment_calc_smuct/domain/payment_logic/cost_controller.dart';
+import 'package:payment_calc_smuct/presentation/widgets/custom_card.dart';
 
 class PaymentPage extends StatefulWidget {
   PaymentPage({Key? key}) : super(key: key);

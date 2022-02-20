@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 // import 'package:test/test.dart';
-import 'package:payment_calc_smuct/controller/cost_controller.dart';
-import 'package:payment_calc_smuct/controller/ssc_hsc_based_scholarship.dart';
-import 'package:payment_calc_smuct/controller/highest_waiver.dart';
-import 'package:payment_calc_smuct/controller/student_waiver.dart';
+import 'package:payment_calc_smuct/domain/payment_logic/cost_controller.dart';
+import 'package:payment_calc_smuct/domain/payment_logic/ssc_hsc_based_scholarship.dart';
+import 'package:payment_calc_smuct/domain/payment_logic/highest_waiver.dart';
+import 'package:payment_calc_smuct/domain/payment_logic/student_waiver.dart';
 
 void main() {
   group("SscHscScholarship", () {

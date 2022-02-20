@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payment_calc_smuct/models/model.dart';
+import 'package:payment_calc_smuct/core/models/model.dart';
 
 List<Widget> inputForm(data) {
   return [
