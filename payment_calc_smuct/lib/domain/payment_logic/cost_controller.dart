@@ -1,5 +1,5 @@
 import 'package:payment_calc_smuct/domain/payment_logic/student_waiver.dart';
-import 'package:payment_calc_smuct/core/models/model.dart';
+import 'package:payment_calc_smuct/data/models/model.dart';
 
 class CostController {
   final DataModel _data = DataModel();

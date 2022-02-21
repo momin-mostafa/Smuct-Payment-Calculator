@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payment_calc_smuct/core/firebase_functions/init_firebase_user.dart';
-import 'package:payment_calc_smuct/core/models/model.dart';
+import 'package:payment_calc_smuct/data/firebase_functions/init_firebase_user.dart';
+import 'package:payment_calc_smuct/data/models/model.dart';
 import 'package:payment_calc_smuct/presentation/screens/login_page.dart';
 // import 'package:payment_calc_smuct/screens/registration_page.dart';
 import 'package:payment_calc_smuct/presentation/screens/result_input_page.dart';

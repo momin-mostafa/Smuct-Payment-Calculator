@@ -1,6 +1,6 @@
 import 'package:payment_calc_smuct/domain/payment_logic/ssc_hsc_based_scholarship.dart';
 
-import 'package:payment_calc_smuct/core/models/model.dart';
+import 'package:payment_calc_smuct/data/models/model.dart';
 import 'highest_waiver.dart';
 
 class StudentWaiverController {

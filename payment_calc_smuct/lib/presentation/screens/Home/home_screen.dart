@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:payment_calc_smuct/data/functions/custom_shared_pref.dart';
 import 'package:payment_calc_smuct/presentation/screens/Payment/payment_page.dart';
 import 'package:payment_calc_smuct/presentation/widgets/home_screen_custom_card.dart';
-import 'package:payment_calc_smuct/core/functions/custom_shared_pref.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);

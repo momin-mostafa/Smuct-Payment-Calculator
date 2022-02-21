@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:payment_calc_smuct/core/functions/custom_shared_pref.dart';
+import 'package:payment_calc_smuct/data/functions/custom_shared_pref.dart';
+
 import 'package:payment_calc_smuct/domain/payment_logic/cost_controller.dart';
 import 'package:payment_calc_smuct/presentation/widgets/custom_card.dart';
 

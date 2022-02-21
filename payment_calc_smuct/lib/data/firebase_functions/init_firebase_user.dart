@@ -1,5 +1,5 @@
 import 'create_user.dart';
-import 'package:payment_calc_smuct/core/models/model.dart';
+import 'package:payment_calc_smuct/data/models/model.dart';
 import 'package:get/get.dart';
 
 void firebaseInitSendUserData(RegistrationPageModelOne modeldata,
