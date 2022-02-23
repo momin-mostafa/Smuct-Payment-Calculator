@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:payment_calc_smuct/data/firebase_functions/init_firebase_user.dart';
 import 'package:payment_calc_smuct/data/models/model.dart';
 import 'package:payment_calc_smuct/presentation/screens/login_page.dart';
-// import 'package:payment_calc_smuct/screens/registration_page.dart';
 import 'package:payment_calc_smuct/presentation/screens/result_input_page.dart';
 
 class ConfirmationPage extends StatelessWidget {
@@ -50,8 +49,11 @@ class ConfirmationPage extends StatelessWidget {
                             data.prevTotalRegisteredCredit.text = '9';
                             data.retakeCredit.text = '0';
                             data.previousSemesterResult.text = '9';
-                            firebaseInitSendUserData(
-                                prevPageData, data, const LoginPage());
+                            firebaseStudentModelInitSendUserDataAndGoToNextPage(
+                              modeldata: prevPageData[0],
+                              modelDatatwo: data,
+                              gotoPage: const LoginPage(),
+                            );
                           },
                           child: const Text("Yes"),
                         ),
@@ -60,7 +62,8 @@ class ConfirmationPage extends StatelessWidget {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            Get.to(const ResultsInputPage());
+                            Get.to(const ResultsInputPage(),
+                                arguments: prevPageData);
                           },
                           child: const Text("No"),
                         ),

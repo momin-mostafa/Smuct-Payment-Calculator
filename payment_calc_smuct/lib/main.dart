@@ -1,6 +1,9 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:payment_calc_smuct/presentation/screens/login_page.dart';
+// import 'package:neumorphic/neumorphic.dart';
+//changed here. with login_page_widget ->->->->->->
+import 'package:payment_calc_smuct/presentation/screens/login/login_page_widget.dart';
 // import 'package:payment_calc_smuct/presentation/screens/confirmation_page.dart';
 // import 'demo_first_page.dart';
 // import 'ui.dart';
@@ -12,7 +15,7 @@ import 'package:firebase_core/firebase_core.dart';
 // import 'drop_down_menu.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     setWindowTitle("My App");
     setWindowMinSize(const Size(414, 736));
@@ -20,7 +23,7 @@ Future<void> main() async {
   }
   // WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
-  runApp(const HomeWrapper());
+  runApp(const DemoHomeWrapper());
 }
 
 class HomeWrapper extends StatefulWidget {
@@ -72,7 +75,7 @@ class _DemoHomeWrapperState extends State<DemoHomeWrapper> {
       home: SafeArea(
         child: LoginPage(),
       ),
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

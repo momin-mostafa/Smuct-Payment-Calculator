@@ -2,8 +2,11 @@ import 'create_user.dart';
 import 'package:payment_calc_smuct/data/models/model.dart';
 import 'package:get/get.dart';
 
-void firebaseInitSendUserData(RegistrationPageModelOne modeldata,
-    RegistrationPageModelTwo modelDatatwo, gotoPage) {
+void firebaseStudentModelInitSendUserDataAndGoToNextPage({
+  required RegistrationPageModelOne modeldata,
+  required RegistrationPageModelTwo modelDatatwo,
+  required gotoPage,
+}) {
   final user = FirebaseStudentModel(
     id: modeldata.id.text,
     name: modeldata.name.text,
@@ -18,8 +21,8 @@ void firebaseInitSendUserData(RegistrationPageModelOne modeldata,
     previousSemesterResult:
         double.parse(modelDatatwo.previousSemesterResult.text),
     retakeCredit: double.parse(modelDatatwo.retakeCredit.text),
-
-    // prevTotalRegisteredCredit: double.parse()//TODO parse all data.
   );
-  createUser(user).then((value) => Get.to(gotoPage));
+  initializeFirebaseByDataIdandSetData(user)
+      .catchError((_) => print(_))
+      .then((value) => Get.to(gotoPage));
 }

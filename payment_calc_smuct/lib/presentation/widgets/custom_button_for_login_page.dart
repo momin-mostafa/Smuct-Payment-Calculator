@@ -5,12 +5,14 @@ class CustomButton extends StatefulWidget {
   final double hight;
   final double width;
   final Function ontapFun;
+  final String name;
   const CustomButton({
     Key? key,
     this.backgroundColor = Colors.white,
     required this.hight,
     required this.width,
     required this.ontapFun,
+    required this.name,
   }) : super(key: key);
 
   @override
@@ -32,7 +34,7 @@ class CustomButtonState extends State<CustomButton> {
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
           color: widget.backgroundColor,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(3),
           boxShadow: isElevated
               ? [
                   BoxShadow(
@@ -50,7 +52,7 @@ class CustomButtonState extends State<CustomButton> {
                 ]
               : null,
         ),
-        child: const Icon(Icons.ac_unit),
+        child: Center(child: Text(widget.name)),
       ),
     );
   }

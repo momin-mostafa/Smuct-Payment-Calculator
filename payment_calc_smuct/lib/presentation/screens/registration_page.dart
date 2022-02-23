@@ -12,7 +12,7 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
-  final RegistrationPageModelOne data = RegistrationPageModelOne();
+  RegistrationPageModelOne data = RegistrationPageModelOne();
   // var regPageTwoData = Get.arguments;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
         Column(children: inputForm(data)),
         ElevatedButton(
           onPressed: () {
-            Get.to(ConfirmationPage(), arguments: data);
+            Get.to(ConfirmationPage(), arguments: [data]);
             // firebaseInitSendUserData(data, regPageTwoData, const LoginPage());
           },
           child: const Text("submit"),
