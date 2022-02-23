@@ -15,7 +15,7 @@ import 'package:firebase_core/firebase_core.dart';
 // import 'drop_down_menu.dart';
 
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     setWindowTitle("My App");
     setWindowMinSize(const Size(414, 736));

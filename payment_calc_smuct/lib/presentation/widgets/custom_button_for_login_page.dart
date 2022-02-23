@@ -37,15 +37,15 @@ class CustomButtonState extends State<CustomButton> {
           borderRadius: BorderRadius.circular(3),
           boxShadow: isElevated
               ? [
-                  BoxShadow(
-                    color: Colors.grey[500]!,
-                    offset: const Offset(4, 4),
+                  const BoxShadow(
+                    color: Colors.black54,
+                    offset: Offset(4, 4),
                     blurRadius: 15,
                     spreadRadius: 1,
                   ),
-                  const BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(-4, -4),
+                  BoxShadow(
+                    color: Colors.blue[300]!,
+                    offset: const Offset(-4, -4),
                     blurRadius: 15,
                     spreadRadius: 1,
                   ),

@@ -15,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[200],
       body: Center(
         child: ListView(
           shrinkWrap: true,
@@ -38,14 +39,31 @@ Widget body({
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
-            width: size.width / 2,
-            child:
-                Card(elevation: 5, child: Image.asset('Images/Smuctian.jpg'))),
+          width: size.width / 2,
+          child: Card(
+            color: Colors.blue.shade100,
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset('Images/login_screen_background_image.png'),
+            ),
+          ),
+        ),
         const SizedBox(height: 20),
         customTextFiledForLoginPage(
-            email, 'Email', 'student@example.com', TextInputType.emailAddress),
+          controller: email,
+          lable: 'Email',
+          hintText: 'student@example.com',
+          inputType: TextInputType.emailAddress,
+          obscurity: false,
+        ),
         customTextFiledForLoginPage(
-            password, 'Password', 'Ab@123', TextInputType.number),
+          controller: password,
+          lable: 'Password',
+          hintText: 'Ab@123',
+          inputType: TextInputType.number,
+          obscurity: true,
+        ),
         const SizedBox(height: 20),
         Card(
           child: CustomButton(
@@ -56,14 +74,17 @@ Widget body({
           ),
         ),
         const SizedBox(height: 20),
-        // CustomButton(
-        //   hight: size.height / 20,
-        //   width: size.width / 4,
-        //   ontapFun: () {},
-        //   name: 'Register',
-        // ),
-        TextButton(onPressed: () {}, child: const Text('Register')),
+        TextButton(
+          onPressed: () {},
+          child: const Text(
+            'Register',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
       ],
+      // ),
+      // )
+      // ],
     ),
   );
 }

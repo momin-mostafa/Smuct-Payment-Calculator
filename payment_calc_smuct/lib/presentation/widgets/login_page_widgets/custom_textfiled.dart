@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
-Widget customTextFiledForLoginPage(TextEditingController controller,
-    String lable, String hintText, TextInputType inputType) {
+Widget customTextFiledForLoginPage({
+  required TextEditingController controller,
+  required String lable,
+  required String hintText,
+  required TextInputType inputType,
+  required bool obscurity,
+}) {
   return Card(
     elevation: 5,
     child: ListTile(
       title: TextField(
         keyboardType: inputType,
         controller: controller,
+        obscureText: obscurity,
         decoration: InputDecoration(
           labelText: lable,
           hintText: hintText,
