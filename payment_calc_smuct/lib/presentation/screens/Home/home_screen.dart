@@ -6,7 +6,7 @@ import 'package:payment_calc_smuct/presentation/widgets/home_screen_custom_card.
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
-  final pref = CustomSharedPreferencesGetterSetter();
+  // final pref = CustomSharedPreferencesGetterSetter();
   @override
   _HomePageState createState() => _HomePageState();
 }
