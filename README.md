@@ -3,6 +3,7 @@ Smuct Payment calculator
 
 ## UI & Project Structure
 Login page : 
+<img src="https://github.com/momin-mostafa/Smuct-Payment-Calculator/blob/main/Screenshot_1671691998.png"  width="60%" height="30%">
 ![alt text](https://github.com/momin-mostafa/Smuct-Payment-Calculator/blob/main/Screenshot_1671691998.png?raw=false) 
 Registration page:
 ![alt text](https://github.com/momin-mostafa/Smuct-Payment-Calculator/blob/main/Screenshot_1671692173.png?raw=false) 
